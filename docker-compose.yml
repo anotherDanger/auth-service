@@ -1,0 +1,14 @@
+services:
+  auth_service:
+    image: auth_service
+    container_name: auth_service
+    environment:
+      - JWT_ACCESS=rahasia
+      - JWT_REFRESH=secret
+    ports:
+      - 8082:8080
+    networks:
+      - all_services
+networks:
+  all_services:
+    external: true

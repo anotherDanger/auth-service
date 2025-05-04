@@ -2,6 +2,7 @@ package main
 
 import (
 	"auth_service/controller"
+	"log"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -22,5 +23,8 @@ func NewServer(handler http.Handler) *http.Server {
 
 func main() {
 	server := InitServer()
-	server.ListenAndServe()
+	err := server.ListenAndServe()
+	if err != nil {
+		log.Print(err)
+	}
 }
